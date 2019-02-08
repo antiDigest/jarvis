@@ -4,6 +4,7 @@
 # from . import *
 import argparse
 from server.respond import getResponse
+from interface.speech import talk
 
 
 parser = argparse.ArgumentParser(description="Extract intent from statement")
