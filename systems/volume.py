@@ -17,6 +17,9 @@
 import osascript
 import math
 
+from server.error import cannotDoThatYet
+from AppKit import NSBeep
+
 
 def volumeProtocol(slots):
     '''
@@ -32,7 +35,7 @@ def volumeProtocol(slots):
 
     slot = slots[0]["slotName"]
     value = slots[0]["value"]["value"]
-    
+
     if slot == "exact":
         setVolume(int(slots[0]["rawValue"]))
     elif slot == "default":
@@ -44,10 +47,14 @@ def volumeProtocol(slots):
             setVolume(0)
         elif value == "mute":
             setVolume(0)
-        elif type(eval(value)) == int:
+        elif value == "down":
+            decreaseVolume()
+        elif value.isdigit():
             setVolume(int(value))
         else:
-            decreaseVolume()
+            return cannotDoThatYet()
+
+    NSBeep()
 
     return
 
