@@ -10,6 +10,9 @@ def getResponse(command):
 
     print(json.dumps(intent, indent=2))
 
-    despatch[intent["intent"]["intentName"]](
-        intent["slots"])  # call the intent protocol here
+    intentName = intent["intent"]["intentName"]
+
+    if intentName != None:
+        # call the intent protocol here
+        return despatch[intentName](intent["slots"])
     return
