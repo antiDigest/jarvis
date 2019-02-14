@@ -1,3 +1,17 @@
+#!/Users/evamy/bot/bin/python
+# ################################################################################################
+#       
+#         Uses speech recognition module to identify what the user is commanding via
+#         voice commands.
+# 
+# ################################################################################################
+# ################################################################################################
+# 
+#         @version 0: Taking voice input using google speech recognizer
+# 
+#         @author: Antriksh Agarwal
+# 
+# ################################################################################################
 
 from __future__ import print_function
 
@@ -5,8 +19,6 @@ import speech_recognition as sr
 import pyaudio
 import wave
 import sys
-
-# from response import Response
 
 # enter the name of usb microphone that you found
 # using lsusb
