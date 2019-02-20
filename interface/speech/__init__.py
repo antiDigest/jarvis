@@ -21,6 +21,6 @@ r = sr.Recognizer()
 
 # generate a list of all audio cards/microphones
 mic_list = sr.Microphone.list_microphone_names()
-# print(mic_list)
+print(mic_list)
 # the following loop aims to set the device ID of the mic that
 # we specifically want to use to avoid ambiguity.

@@ -3,7 +3,6 @@
 
 # from . import *
 import argparse
-from server.respond import getResponse
 from interface.speech import talk
 
 
@@ -13,4 +12,4 @@ parser.add_argument("-c", "--command", type=str,
 
 args = parser.parse_args()
 
-getResponse(args.command)
+talk.waitForInit()
