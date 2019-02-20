@@ -1,8 +1,21 @@
+#!/Users/evamy/bot/bin/python
+# ################################################################################################
+#       
+#         Uses speech recognition module to identify what the user is commanding via
+#         voice commands.
+# 
+# ################################################################################################
+# ################################################################################################
+# 
+#         @version 0: Taking voice input using google speech recognizer
+# 
+#         @author: Antriksh Agarwal
+# 
+# ################################################################################################
 
 from . import sr, r
 from server.respond import getResponse
 
-# from response import Response
 
 init_words = ['Alfred', 'hey Alfred', 'Mr Pennyworth', 'okay Alfred']
 

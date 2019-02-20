@@ -1,4 +1,18 @@
 #!/Users/evamy/bot/bin/python
+# ################################################################################################
+#       
+#         Handles all commands that refer to manipulating the volume of the system
+# 
+# ################################################################################################
+# ################################################################################################
+# 
+#         @version 0: simple command to manipulate volume
+# 
+#         @author: Antriksh Agarwal
+# 
+# ################################################################################################
+
+
 
 import osascript
 import math
@@ -8,6 +22,13 @@ from AppKit import NSBeep
 
 
 def volumeProtocol(slots):
+    '''
+        The volume protocol is a switch statement on the identified intent
+        according to the user, the volume can be set to:
+        max/min/numerical value/percentage value/increased/decreased
+
+        @input: list output from intent extractor
+    '''
 
     assert(type(slots) == list)
     assert(len(slots) == 1)
@@ -39,6 +60,12 @@ def volumeProtocol(slots):
 
 
 def setVolume(value):
+    '''
+        set volume of the current output source to a value
+
+        @input: int value of volume
+    '''
+
     osascript.osascript("set volume output volume " + str(value))
 
     print("Volume has been set to " + str(value))
@@ -47,6 +74,13 @@ def setVolume(value):
 
 
 def getOutputVolume():
+    '''
+        get output volume of the current output source
+
+        it does not work when the output source is not accessible
+        like a monitor with speakers.
+    '''
+
     currentVolume = osascript.osascript("get volume settings")
     # print(currentVolume)
     volumeSetting = currentVolume[1].split(", ")
@@ -58,6 +92,9 @@ def getOutputVolume():
 
 
 def increaseVolume():
+    '''
+        increase volume by 10 from the current output volume
+    '''
 
     output, mute = getOutputVolume()
 
@@ -72,6 +109,9 @@ def increaseVolume():
 
 
 def decreaseVolume():
+    '''
+        decrease volume by 10 from the current output volume
+    '''
 
     output, mute = getOutputVolume()
 

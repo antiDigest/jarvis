@@ -1,4 +1,9 @@
-#!usr/local/bin/python2.7
+#!/Users/evamy/bot/bin/python
+# ################################################################################################
+# 
+#         @author: Antriksh Agarwal
+# 
+# ################################################################################################
 
 import speech_recognition as sr
 import pyaudio
@@ -24,3 +29,4 @@ mic_list = sr.Microphone.list_microphone_names()
 print(mic_list)
 # the following loop aims to set the device ID of the mic that
 # we specifically want to use to avoid ambiguity.
+
