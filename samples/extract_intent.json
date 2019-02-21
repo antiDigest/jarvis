@@ -332,74 +332,29 @@
       ]
     }
   },
-  "sampleTurnOnLight": {
+  "timeProtocol": {
       "utterances": [
         {
           "data": [
             {
-              "text": "The "
-            },
-            {
-              "text": "bedroom",
-              "entity": "room",
-              "slot_name": "room"
-            },
-            {
-              "text": " is dark, please turn on the light !"
+              "text": "time",
+              "entity": "time",
+              "slot_name": "time"
             }
           ]
         },
         {
           "data": [
             {
-              "text": "Can you enlight the "
+              "text": "What is the "
             },
             {
-              "text": "living room",
-              "entity": "room",
-              "slot_name": "room"
+              "text": "time",
+              "entity": "time",
+              "slot_name": "time"
             },
             {
               "text": " ?"
-            }
-          ]
-        },
-        {
-          "data": [
-            {
-              "text": "I need some light in the "
-            },
-            {
-              "text": "basement",
-              "entity": "room",
-              "slot_name": "room"
-            },
-            {
-              "text": " please"
-            }
-          ]
-        },
-        {
-          "data": [
-            {
-              "text": "Please put some lights in the "
-            },
-            {
-              "text": "bathroom",
-              "entity": "room",
-              "slot_name": "room"
-            }
-          ]
-        },
-        {
-          "data": [
-            {
-              "text": "Turn on the lights in the "
-            },
-            {
-              "text": "kitchen",
-              "entity": "room",
-              "slot_name": "room"
             }
           ]
         }
@@ -446,7 +401,8 @@
             "synonyms": [
               "decrease",
               "low",
-              "lower"
+              "lower",
+              "reduce"
             ]
           },
           {
@@ -472,7 +428,13 @@
       "use_synonyms": true,
       "automatically_extensible": true,
       "matching_strictness": 1.0
-    }
+    },
+    "time": {
+      "data": [],
+      "use_synonyms": true,
+      "automatically_extensible": false,
+      "matching_strictness": 1.0
+    },
   },
   "language": "en"
 }

@@ -16,9 +16,9 @@
 
 import osascript
 import math
+import sys
 
 from server.error import cannotDoThatYet
-from AppKit import NSBeep
 
 
 def volumeProtocol(slots):
@@ -54,7 +54,9 @@ def volumeProtocol(slots):
         else:
             return cannotDoThatYet()
 
-    NSBeep()
+    # NSBeep()
+    sys.stdout.write('\a')
+    sys.stdout.flush()
 
     return
 
@@ -68,7 +70,7 @@ def setVolume(value):
 
     osascript.osascript("set volume output volume " + str(value))
 
-    print("Volume has been set to " + str(value))
+    # print("Volume has been set to " + str(value))
 
     return
 

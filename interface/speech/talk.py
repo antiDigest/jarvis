@@ -15,12 +15,16 @@
 
 from . import sr, r
 from server.respond import getResponse
+from systems import volume
 
 
 init_words = ['Alfred', 'hey Alfred', 'Mr Pennyworth', 'okay Alfred']
 
 
 def waitForInit():
+    '''
+        waits for the initialization word/phrase to listen to command
+    '''
     while(1):
         with sr.Microphone() as source:
             # audio = r.listen(source)
@@ -32,16 +36,14 @@ def waitForInit():
             # wait for a second to let the recognizer adjust the
             # energy threshold based on the surrounding noise level
             r.adjust_for_ambient_noise(source)
-            print("Waiting ...")
+            # print("Waiting ...")
             # listens for the user's input
             audio = r.listen(source)
 
             try:
                 text = r.recognize_google(audio)
-                print("you said: " + text)
                 if text in init_words:
                     listen()
-                # print Response().reply(text)
 
             except sr.UnknownValueError:
                 print("Google Speech Recognition could not understand audio")
@@ -53,6 +55,10 @@ def waitForInit():
 
 
 def listen():
+    '''
+        listens to the command to get response
+        Waits for user voice command, lowers down volume to listen
+    '''
     with sr.Microphone() as source:
         # audio = r.listen(source)
 
@@ -63,16 +69,21 @@ def listen():
         # wait for a second to let the recognizer adjust the
         # energy threshold based on the surrounding noise level
         r.adjust_for_ambient_noise(source)
-        print("Listening ...")
+        # print("Listening ...")
         # listens for the user's input
+        output, mute = volume.getOutputVolume()
+        if output > 20:
+            volume.setVolume(20)
         audio = r.listen(source)
+        if output > 20:
+            volume.setVolume(output)
 
         try:
             text = r.recognize_google(audio)
             print("you said: " + text)
             # print Response().reply(text)
             try:
-                print(getResponse(text))
+                getResponse(text)
             except Exception as e:
                 print("Exception")
                 print(e)
